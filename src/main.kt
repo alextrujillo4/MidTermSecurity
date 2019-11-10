@@ -1,5 +1,5 @@
 /*
- * Name: Valentin Alexandro Trujillo García
+ * Team: Ricardo Acosta, Valentin Trujillo, Ivan Muniz
  * Matricula: A01328426
  * Clase: Seguridad informática
  * Titulo: ACTIVIDAD 5 Variacion de VIGENERE
@@ -14,9 +14,11 @@ fun main (args : Array<String>){
     val KEY = "148"
     val values : ArrayList<Char> = ArrayList<Char>()
     val key : ArrayList<Int> = ArrayList<Int>()
-    key.add(1)
-    key.add(4)
-    key.add(8)
+
+    for (letter in KEY) {
+        key.add(letter.toInt())
+    }
+
     val text : String = "472313611824446201";
     var iter = 0;
     for (letter in text) {
@@ -24,10 +26,10 @@ fun main (args : Array<String>){
         values.add(shiftValue(key[iter], letter));
         iter++;
     }
-    println("=======================")
+    
+    println("=======RESULT=======")
     for(single in values){
-        println(single)
-
+        print(single)
     }
 
 }
