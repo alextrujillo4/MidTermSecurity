@@ -12,13 +12,13 @@ import Cypher.Vigenere
 fun diffieHellman() {
     print("Enter private Bob Private Key: ");
     val b_private = readLine()!!
-
+    val shared_key = Multiplicative.getSharedKey(b_private.toDouble(), 571494109.0, 240802908.0);
+    println(shared_key);
 }
 
 fun main (args : Array<String>){
     diffieHellman();
     val text : String = "472313611824446201";
     val KEY = "148"
-    Vigenere.run(text, KEY);
+    //Vigenere.run(text, KEY);
 }
-
