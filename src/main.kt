@@ -10,14 +10,20 @@ import Cypher.Vigenere
  * */
 
 
-
-
 fun main (args : Array<String>){
+    val g = 653
+    val p = 571494109
+    val A = 240802908
+
 
     val text : String = "472313611824446201";
-    val KEY = "148"
+    val KEY = "63639021"
     Vigenere.run(text, KEY);
 
+    val key = 7
+    val word = "MAY THE FORCE BE WITH YOU";
+    Multiplicative.run(word, key)
+    Multiplicative.decrypt(key)
 
 }
 
