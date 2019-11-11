@@ -13,7 +13,9 @@ fun diffieHellman() {
     print("Enter private Bob Private Key: ");
     val b_private = readLine()!!
     val shared_key = Multiplicative.getSharedKey(b_private.toDouble(), 571494109.0, 240802908.0);
-    println(shared_key);
+    val b_partial = Multiplicative.getPartial(653.0, b_private.toDouble(),571494109.0);
+    println("The value of b is: ${b_partial}");
+    println("Your shared key is: ${shared_key}");
 }
 
 fun main (args : Array<String>){
