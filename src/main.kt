@@ -6,11 +6,21 @@
  *
  * */
 
+fun diffieHellman() {
+    print("Enter private Bob Private Key: ");
+    val b_private = readLine()!!
+
+}
+
+
 fun shiftValue(n : Int, text : Char): Char {
     return text + n;
 }
 
 fun main (args : Array<String>){
+    diffieHellman();
+
+
     val KEY = "148"
     val values : ArrayList<Char> = ArrayList<Char>()
     val key : ArrayList<Int> = ArrayList<Int>()
