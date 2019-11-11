@@ -1,3 +1,6 @@
+import Cypher.Multiplicative
+import Cypher.Vigenere
+
 /*
  * Team: Ricardo Acosta, Valentin Trujillo, Ivan Muniz
  * Matricula: A01328426
@@ -6,31 +9,15 @@
  *
  * */
 
-fun shiftValue(n : Int, text : Char): Char {
-    return text + n;
-}
+
+
 
 fun main (args : Array<String>){
-    val KEY = "148"
-    val values : ArrayList<Char> = ArrayList<Char>()
-    val key : ArrayList<Int> = ArrayList<Int>()
-
-    for (letter in KEY) {
-        key.add(letter.toInt())
-    }
 
     val text : String = "472313611824446201";
-    var iter = 0;
-    for (letter in text) {
-        if (iter >= key.size) iter = 0;
-        values.add(shiftValue(key[iter], letter));
-        iter++;
-    }
-    
-    println("=======RESULT=======")
-    for(single in values){
-        print(single)
-    }
+    val KEY = "148"
+    Vigenere.run(text, KEY);
+
 
 }
 
