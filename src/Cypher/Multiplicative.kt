@@ -5,7 +5,6 @@ class Multiplicative{
     companion object  {
         var encyptedWord = "";
 
-
         fun modInverse(a: Int, m: Int): Int {
             var a = a
             a = a % m
@@ -37,7 +36,7 @@ class Multiplicative{
                     desencripted_word.add(' ')
                 }
             }
-            println("=======Decryption=======")
+            println("Decryption:")
             print( desencripted_word.joinToString(
                 separator = "",
                 prefix = "",
@@ -56,7 +55,6 @@ class Multiplicative{
                     encripted_word.add(' ')
                 }
             }
-            println("=======Multiplicative=======")
             encyptedWord = encripted_word.joinToString(
                 separator = "",
                 prefix = "",
@@ -66,7 +64,8 @@ class Multiplicative{
         }
 
         fun run(word: String, key: Int) {
-            println("\n${word}");
+            println("\n=======Multiplicative=======")
+            println("Plain: ${word}\nEncrypt:");
             encript(word, key)
         }
     }

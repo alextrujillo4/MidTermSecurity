@@ -1,15 +1,16 @@
 package Cypher
 
+import java.math.BigInteger
 import kotlin.math.pow
 
 class DiffieHellman{
     companion object  {
-        public fun getSharedKey(b_private: Double, p_param: Double, a_partial: Double) : Long {
-            return (a_partial.pow(b_private)).toLong() % (p_param.toLong());
+
+        fun run(b: Int, g: BigInteger, p: BigInteger, A: BigInteger) {
+            println("=======DIFFIE HELLMAN=======")
+            println("The value of b is: ${g.pow(b) * (p)}");
+            println("Your shared key is: ${A.pow(b) % p}\n");
         }
 
-        public fun getPartial(g_param: Double, b_private: Double, p_param: Double) : Int {
-            return ((g_param.pow(b_private).toLong()) % p_param).toInt();
-        }
     }
 }

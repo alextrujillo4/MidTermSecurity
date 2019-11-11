@@ -1,4 +1,8 @@
 import Cypher.DiffieHellman
+import Cypher.Multiplicative
+import Cypher.RSA
+import Cypher.Vigenere
+import java.math.BigInteger
 
 /*
  * Team: Ricardo Acosta, Valentin Trujillo, Ivan Muniz
@@ -8,13 +12,15 @@ import Cypher.DiffieHellman
  *
  * */
 
-<<<<<<< HEAD
+
 
 fun main (args : Array<String>){
-    val g = 653
-    val p = 571494109
-    val A = 240802908
 
+    val b : Int = 69;
+    val g  = BigInteger("653");
+    val p= BigInteger("571494109");
+    val A = BigInteger("240802908");
+    DiffieHellman.run(b,g,p,A);
 
     val text : String = "472313611824446201";
     val KEY = "63639021"
@@ -25,22 +31,12 @@ fun main (args : Array<String>){
     Multiplicative.run(word, key)
     Multiplicative.decrypt(key)
 
-}
 
-=======
-fun diffieHellman() {
-    print("Enter private Bob Private Key: ");
-    val b_private = readLine()!!
-    val shared_key = DiffieHellman.getSharedKey(b_private.toDouble(), 571494109.0, 240802908.0);
-    val b_partial = DiffieHellman.getPartial(653.0, b_private.toDouble(),571494109.0);
-    println("The value of b is: ${b_partial}");
-    println("Your shared key is: ${shared_key}");
+    val n  = BigInteger("841759710990034217299")
+    val e =  BigInteger ("65537")
+    val plain = "Hello";
+    RSA.run(n,e,plain)
+    val p = 0;
+    val q = 0;
+    RSA.run2(p,q,"ILLBEBACK")
 }
-
-fun main (args : Array<String>){
-    diffieHellman();
-    val text : String = "472313611824446201";
-    val KEY = "148"
-    //Vigenere.run(text, KEY);
-}
->>>>>>> 9bef957958a532d6d5177b15f3c386f4b68186f3
