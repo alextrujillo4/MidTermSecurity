@@ -1,5 +1,4 @@
-import Cypher.Multiplicative
-import Cypher.Vigenere
+import Cypher.DiffieHellman
 
 /*
  * Team: Ricardo Acosta, Valentin Trujillo, Ivan Muniz
@@ -9,6 +8,7 @@ import Cypher.Vigenere
  *
  * */
 
+<<<<<<< HEAD
 
 fun main (args : Array<String>){
     val g = 653
@@ -27,3 +27,20 @@ fun main (args : Array<String>){
 
 }
 
+=======
+fun diffieHellman() {
+    print("Enter private Bob Private Key: ");
+    val b_private = readLine()!!
+    val shared_key = DiffieHellman.getSharedKey(b_private.toDouble(), 571494109.0, 240802908.0);
+    val b_partial = DiffieHellman.getPartial(653.0, b_private.toDouble(),571494109.0);
+    println("The value of b is: ${b_partial}");
+    println("Your shared key is: ${shared_key}");
+}
+
+fun main (args : Array<String>){
+    diffieHellman();
+    val text : String = "472313611824446201";
+    val KEY = "148"
+    //Vigenere.run(text, KEY);
+}
+>>>>>>> 9bef957958a532d6d5177b15f3c386f4b68186f3
