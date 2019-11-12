@@ -1,21 +1,12 @@
 package Cypher
 
 import java.math.BigInteger
+import java.util.*
 import kotlin.math.pow
 
 class RSA {
     companion object  {
 
-        //d = inverse of e mod phi)
-        //phi = (p-1)*(q-1)
-        fun modInverse(a: Int, m: Int): String {
-            var a = a
-            a = a % m
-            for (x in 1 until m)
-                if (a * x % m == 1)
-                    return x.toString()
-            return 1.toString()
-        }
 
         fun run(n : BigInteger, e : BigInteger, plainText : String){
             println("\n\n=======RSA=======")
@@ -34,11 +25,37 @@ class RSA {
         }
 
 
-        fun run2(p : Int, q : Int ,plainText : String){
+        fun run2(p : BigInteger, q : BigInteger , e : BigInteger, plainText : String){
             println("\nBob:")
+            println("Plain: $plainText")
+
+            val c = Charsets.UTF_8
+
+            val bytes = plainText.toByteArray(c)
+            val plainNumber = BigInteger(bytes)
+
+            val n = p*q
+            println("n: $n")
+
+            val phi : BigInteger = (p - 1.toBigInteger())*( q - 1.toBigInteger())
+            println("Phi: $phi")
+
+            val d =  e.modInverse(phi)
+            println("d: $d")
 
 
-        }
+            val enc = plainNumber.modPow(e, n)
+            println("Encoded:")
+            println(enc)
+
+            println("Decoded:")
+            val dec = enc.modPow(d, n)
+            println(dec)
+
+            println("Text:")
+            val decText = dec.toByteArray().toString(c)
+            println(decText)
+            }
 
     }
 

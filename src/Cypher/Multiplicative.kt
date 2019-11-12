@@ -5,6 +5,9 @@ class Multiplicative{
     companion object  {
         var encyptedWord = "";
 
+
+        //d = inverse of e mod phi)
+        //phi = (p-1)*(q-1)
         fun modInverse(a: Int, m: Int): Int {
             var a = a
             a = a % m

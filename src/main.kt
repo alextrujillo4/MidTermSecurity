@@ -3,6 +3,7 @@ import Cypher.Multiplicative
 import Cypher.RSA
 import Cypher.Vigenere
 import java.math.BigInteger
+import java.util.*
 
 /*
  * Team: Ricardo Acosta, Valentin Trujillo, Ivan Muniz
@@ -17,8 +18,8 @@ import java.math.BigInteger
 fun main (args : Array<String>){
 
     val b : Int = 69;
-    val g  = BigInteger("653");
-    val p= BigInteger("571494109");
+    val g = BigInteger("653");
+    val p = BigInteger("571494109");
     val A = BigInteger("240802908");
     DiffieHellman.run(b,g,p,A);
 
@@ -34,9 +35,10 @@ fun main (args : Array<String>){
 
     val n  = BigInteger("841759710990034217299")
     val e =  BigInteger ("65537")
-    val plain = "Hello";
+    var plain = "Hello";
     RSA.run(n,e,plain)
-    val p = 0;
-    val q = 0;
-    RSA.run2(p,q,"ILLBEBACK")
+     val p_val = BigInteger("777132046781") //BigInteger.probablePrime(40, Random()).toString()
+     val q_val = BigInteger("670246397369")
+     plain = "ILLBEBACK"
+    RSA.run2(p_val,q_val,e,plain)
 }
